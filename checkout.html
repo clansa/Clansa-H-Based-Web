@@ -47,8 +47,8 @@
       <p class="text-sm text-slate-600 mt-2" data-i18n="page_sub">Rond uw projectaanvraag af en start direct.</p>
     </div>
 
-    <!-- FORMSPREE ACTION BURAYA EKLENDİ -->
-    <form action="https://formspree.io/f/xoeapydn" method="POST">
+    <!-- onsubmit ile JS fonksiyonu tetiklenir -->
+    <form id="checkout-form" action="https://formspree.io/f/xoeapydn" method="POST" onsubmit="handleCheckoutSubmit(event)">
       
       <!-- Mailde görünecek gizli paket bilgisi -->
       <input type="hidden" name="Pakket" value="Professional Website (€499)">
@@ -212,9 +212,9 @@
             </div>
 
             <!-- SUBMIT BUTTON -->
-            <button type="submit" class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 transition-all flex justify-center items-center gap-2 group cursor-pointer">
-              <svg class="w-4 h-4 text-blue-200 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-              <span data-i18n="btn_checkout">Veilig Afrekenen & Starten</span>
+            <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 transition-all flex justify-center items-center gap-2 group cursor-pointer disabled:opacity-50">
+              <svg id="btn-icon" class="w-4 h-4 text-blue-200 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+              <span id="btn-text" data-i18n="btn_checkout">Veilig Afrekenen & Starten</span>
             </button>
 
             <div class="mt-6 space-y-4">
@@ -271,6 +271,7 @@
         summary_monthly_recurring: "Maandelijkse Kosten (Excl. BTW):",
         summary_monthly_note: "Wordt maandelijks gefactureerd zolang u de service gebruikt.",
         btn_checkout: "Veilig Afrekenen & Starten",
+        btn_redirecting: "Even geduld, doorverbinden naar betaalpagina...",
         trust_1: "<strong>Gegarandeerd:</strong> 7-dagen niet-goed-geld-terug garantie. Geen vragen gesteld.",
         trust_2: "Uw betaling is beveiligd met <strong>256-bit SSL-encryptie</strong> via onze betaalpartner.",
         footer_rights: "Alle rechten voorbehouden."
@@ -303,6 +304,7 @@
         summary_monthly_recurring: "Monthly Recurring (Excl. VAT):",
         summary_monthly_note: "Billed monthly as long as you use the service.",
         btn_checkout: "Secure Checkout & Start",
+        btn_redirecting: "Please wait, redirecting to payment...",
         trust_1: "<strong>Guaranteed:</strong> 7-day money-back guarantee. No questions asked.",
         trust_2: "Your payment is secured with <strong>256-bit SSL encryption</strong> via our payment partner.",
         footer_rights: "All rights reserved."
@@ -312,6 +314,7 @@
     let currentLang = 'nl';
     const basePrice = 499.00;
     const vatRate = 0.21;
+    const checkoutUrl = 'https://clansastudio.lemonsqueezy.com/checkout/buy/8184fb63-12e2-44ff-93b1-6d16b801405a';
 
     function switchLanguage(lang) {
       currentLang = lang;
@@ -360,6 +363,40 @@
       document.getElementById('calc-subtotal').innerText = `€${subtotal.toFixed(2).replace('.', ',')}`;
       document.getElementById('calc-vat').innerText = `€${vat.toFixed(2).replace('.', ',')}`;
       document.getElementById('calc-total-now').innerText = `€${totalNow.toFixed(2).replace('.', ',')}`;
+    }
+
+    // FORMSPREE ARKA PLANDA ÇALIŞIR VE DOĞRUDAN LEMON SQUEEZY'YE YÖNLENDİRİR
+    async function handleCheckoutSubmit(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnIcon = document.getElementById('btn-icon');
+      const dict = translations[currentLang];
+
+      // Buton durumunu güncelle
+      submitBtn.disabled = true;
+      btnIcon.classList.add('hidden');
+      btnText.innerText = dict.btn_redirecting;
+
+      const formData = new FormData(form);
+
+      try {
+        // Formspree'ye veriyi arka planda gönder
+        await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+      } catch (err) {
+        console.warn('Form verisi iletilirken arka plan hatasi (yine de yonlendiriliyor):', err);
+      }
+
+      // Müşteriyi doğrudan Lemon Squeezy linkine fırlat
+      window.location.href = checkoutUrl;
     }
 
     window.addEventListener('DOMContentLoaded', () => {
