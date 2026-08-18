@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="nl-NL" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veilig Afrekenen | Clansa Studio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    /* Hide number input arrows */
+    input[type="number"]::-webkit-inner-spin-button, 
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- 1. CHECKOUT HEADER (Minimalist for less distraction) -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center">
+        <!-- Logo Text Fallback in case SVG is missing -->
+        <div class="flex items-center gap-2 text-slate-900 font-extrabold text-xl tracking-tight">
+          <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center text-sm">⚡</span>
+          Clansa Studio
+        </div>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors hidden sm:block" data-i18n="back_to_site">&larr; Terug naar website</a>
+        <!-- Language Switcher -->
+        <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold">
+          <button id="lang-nl" onclick="switchLanguage('nl')" class="px-2.5 py-1 rounded-lg bg-white text-blue-600 shadow-sm transition-all">NL</button>
+          <button id="lang-en" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-900 transition-all">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. CHECKOUT CONTENT -->
+  <main class="py-12 px-6 lg:px-12 max-w-7xl mx-auto">
+    
+    <div class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="page_title">Veilig Afrekenen</h1>
+      <p class="text-sm text-slate-600 mt-2" data-i18n="page_sub">Rond uw projectaanvraag af en start direct.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- LEFT COLUMN: Form & Details -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- Section: Personal/Business Details -->
+        <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
+          <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">1</span>
+            <span data-i18n="sec_details">Uw Gegevens</span>
+          </h2>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="form_fname">Voornaam</label>
+              <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="form_lname">Achternaam</label>
+              <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="form_company">Bedrijfsnaam</label>
+              <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="form_email">E-mailadres</label>
+              <input type="email" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="form_phone">Telefoonnummer</label>
+              <input type="tel" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Extra Services (UPSELL) -->
+        <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full pointer-events-none"></div>
+          
+          <h2 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">2</span>
+            <span data-i18n="sec_extras">Extra Services (Aanbevolen)</span>
+          </h2>
+          <p class="text-xs text-slate-500 mb-6 pl-10" data-i18n="sec_extras_sub">Kies voor zorgeloos beheer van uw nieuwe website.</p>
+
+          <label class="flex items-start sm:items-center justify-between p-5 rounded-2xl border-2 border-slate-200 hover:border-blue-400 cursor-pointer transition-all group bg-slate-50" id="care-plan-card">
+            <div class="flex gap-4 items-start sm:items-center">
+              <input type="checkbox" id="addon-care" onchange="toggleCarePlan()" class="mt-1 sm:mt-0 w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors" data-i18n="addon_care_title">Premium Website Beheer</span>
+                  <span class="bg-blue-100 text-blue-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded" data-i18n="addon_badge">Zorgeloos</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed max-w-md" data-i18n="addon_care_desc">
+                  Wij updaten maandelijks uw teksten, foto's en menukaart. Inclusief voorrang bij support. Zelf niks meer doen, wij regelen het.
+                </p>
+              </div>
+            </div>
+            <div class="text-right shrink-0 mt-4 sm:mt-0">
+              <div class="text-lg font-black text-slate-900">€79</div>
+              <div class="text-[10px] font-semibold text-slate-500 uppercase" data-i18n="addon_per_month">per maand</div>
+            </div>
+          </label>
+        </section>
+
+        <!-- Section: Payment Method -->
+        <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
+          <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">3</span>
+            <span data-i18n="sec_payment">Betaalmethode</span>
+          </h2>
+          
+          <div class="space-y-3">
+            <!-- iDEAL -->
+            <label class="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-blue-400 cursor-pointer group bg-white has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/50 transition-all">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="payment_method" value="ideal" checked class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300">
+                <span class="text-sm font-bold text-slate-900">iDEAL</span>
+              </div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/IDEAL_Logo.png" alt="iDEAL" class="h-6">
+            </label>
+
+            <!-- Credit Card -->
+            <label class="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-blue-400 cursor-pointer group bg-white has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/50 transition-all">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="payment_method" value="card" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300">
+                <span class="text-sm font-bold text-slate-900" data-i18n="pay_card">Creditcard / Debitkaart</span>
+              </div>
+              <div class="flex gap-1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-6">
+              </div>
+            </label>
+
+            <!-- Bancontact -->
+            <label class="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-blue-400 cursor-pointer group bg-white has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/50 transition-all">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="payment_method" value="bancontact" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300">
+                <span class="text-sm font-bold text-slate-900">Bancontact</span>
+              </div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bancontact_logo.svg" alt="Bancontact" class="h-5">
+            </label>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Order Summary (Sticky) -->
+      <div class="lg:col-span-5 relative">
+        <div class="sticky top-24 bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-800 text-white">
+          
+          <h3 class="text-lg font-bold text-white mb-6 border-b border-slate-800 pb-4" data-i18n="summary_title">Besteloverzicht</h3>
+
+          <!-- Items list -->
+          <div class="space-y-4 mb-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h4 class="text-sm font-bold text-white" data-i18n="pkg_name">Professional Website Pakket</h4>
+                <p class="text-[11px] text-slate-400 mt-1" data-i18n="pkg_desc">Maatwerk design, SEO, 100 PageSpeed.</p>
+              </div>
+              <span class="text-sm font-bold">€499,00</span>
+            </div>
+
+            <!-- Dynamic Care Plan Row -->
+            <div id="summary-care-plan" class="flex justify-between items-start hidden">
+              <div>
+                <h4 class="text-sm font-bold text-blue-400" data-i18n="addon_care_title">Premium Website Beheer</h4>
+                <p class="text-[11px] text-slate-400 mt-1" data-i18n="summary_care_desc">Abonnement (Maandelijks)</p>
+              </div>
+              <span class="text-sm font-bold text-blue-400">€79,00</span>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="border-t border-slate-700/50 pt-4 mb-4 space-y-2">
+            <div class="flex justify-between text-xs text-slate-400">
+              <span data-i18n="summary_subtotal">Subtotaal</span>
+              <span id="calc-subtotal">€499,00</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-400">
+              <span data-i18n="summary_vat">BTW (21%)</span>
+              <span id="calc-vat">€104,79</span>
+            </div>
+          </div>
+
+          <!-- Total (One Time) -->
+          <div class="border-t border-slate-700 pt-4 mb-4 flex justify-between items-end">
+            <div>
+              <div class="text-sm font-bold text-white" data-i18n="summary_total_now">Totaal Vandaag (Incl. BTW)</div>
+            </div>
+            <div class="text-2xl font-black text-white" id="calc-total-now">€603,79</div>
+          </div>
+
+          <!-- Total (Monthly Dynamic Box) -->
+          <div id="summary-monthly-box" class="bg-blue-900/30 border border-blue-800/50 rounded-xl p-4 mb-6 hidden transition-all">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-blue-300" data-i18n="summary_monthly_recurring">Maandelijkse Kosten (Excl. BTW):</span>
+              <span class="text-lg font-black text-blue-300">€79,00</span>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-1" data-i18n="summary_monthly_note">Wordt maandelijks gefactureerd zolang u de service gebruikt.</p>
+          </div>
+
+          <!-- Checkout Button -->
+          <button class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 transition-all flex justify-center items-center gap-2 group">
+            <svg class="w-4 h-4 text-blue-200 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            <span data-i18n="btn_checkout">Veilig Afrekenen & Starten</span>
+          </button>
+
+          <!-- Trust Badges -->
+          <div class="mt-6 space-y-4">
+            <div class="flex items-center gap-3 text-xs text-slate-400">
+              <span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 shrink-0">✓</span>
+              <span data-i18n="trust_1"><strong>Gegarandeerd:</strong> 7-dagen niet-goed-geld-terug garantie. Geen vragen gesteld.</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-400">
+              <span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-blue-400 shrink-0">🔒</span>
+              <span data-i18n="trust_2">Uw betaling is beveiligd met <strong>256-bit SSL-encryptie</strong> via Stripe.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 3. FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Clansa Studio. <span data-i18n="footer_rights">Alle rechten voorbehouden.</span></p>
+  </footer>
+
+  <!-- SCRIPT FOR DYNAMIC CALCULATION AND LANGUAGE -->
+  <script>
+    const translations = {
+      nl: {
+        back_to_site: "&larr; Terug naar website",
+        page_title: "Veilig Afrekenen",
+        page_sub: "Rond uw projectaanvraag af en start direct.",
+        sec_details: "Uw Gegevens",
+        form_fname: "Voornaam",
+        form_lname: "Achternaam",
+        form_company: "Bedrijfsnaam",
+        form_email: "E-mailadres",
+        form_phone: "Telefoonnummer",
+        sec_extras: "Extra Services (Aanbevolen)",
+        sec_extras_sub: "Kies voor zorgeloos beheer van uw nieuwe website.",
+        addon_care_title: "Premium Website Beheer",
+        addon_badge: "Zorgeloos",
+        addon_care_desc: "Wij updaten maandelijks uw teksten, foto's en menukaart. Inclusief voorrang bij support. Zelf niks meer doen, wij regelen het.",
+        addon_per_month: "per maand",
+        sec_payment: "Betaalmethode",
+        pay_card: "Creditcard / Debitkaart",
+        summary_title: "Besteloverzicht",
+        pkg_name: "Professional Website Pakket",
+        pkg_desc: "Maatwerk design, SEO, 100 PageSpeed.",
+        summary_care_desc: "Abonnement (Maandelijks)",
+        summary_subtotal: "Subtotaal",
+        summary_vat: "BTW (21%)",
+        summary_total_now: "Totaal Vandaag (Incl. BTW)",
+        summary_monthly_recurring: "Maandelijkse Kosten (Excl. BTW):",
+        summary_monthly_note: "Wordt maandelijks gefactureerd zolang u de service gebruikt.",
+        btn_checkout: "Veilig Afrekenen & Starten",
+        trust_1: "<strong>Gegarandeerd:</strong> 7-dagen niet-goed-geld-terug garantie. Geen vragen gesteld.",
+        trust_2: "Uw betaling is beveiligd met <strong>256-bit SSL-encryptie</strong> via onze betaalpartner.",
+        footer_rights: "Alle rechten voorbehouden."
+      },
+      en: {
+        back_to_site: "&larr; Back to website",
+        page_title: "Secure Checkout",
+        page_sub: "Complete your project request and start immediately.",
+        sec_details: "Your Details",
+        form_fname: "First Name",
+        form_lname: "Last Name",
+        form_company: "Company Name",
+        form_email: "Email Address",
+        form_phone: "Phone Number",
+        sec_extras: "Additional Services (Recommended)",
+        sec_extras_sub: "Choose worry-free management for your new website.",
+        addon_care_title: "Premium Website Management",
+        addon_badge: "Worry-Free",
+        addon_care_desc: "We update your texts, photos, and menu monthly. Includes priority support. You don't have to do anything, we handle it.",
+        addon_per_month: "per month",
+        sec_payment: "Payment Method",
+        pay_card: "Credit Card / Debit Card",
+        summary_title: "Order Summary",
+        pkg_name: "Professional Website Package",
+        pkg_desc: "Custom design, SEO, 100 PageSpeed.",
+        summary_care_desc: "Subscription (Monthly)",
+        summary_subtotal: "Subtotal",
+        summary_vat: "VAT (21%)",
+        summary_total_now: "Total Today (Incl. VAT)",
+        summary_monthly_recurring: "Monthly Recurring (Excl. VAT):",
+        summary_monthly_note: "Billed monthly as long as you use the service.",
+        btn_checkout: "Secure Checkout & Start",
+        trust_1: "<strong>Guaranteed:</strong> 7-day money-back guarantee. No questions asked.",
+        trust_2: "Your payment is secured with <strong>256-bit SSL encryption</strong> via our payment partner.",
+        footer_rights: "All rights reserved."
+      }
+    };
+
+    let currentLang = 'nl';
+    const basePrice = 499.00;
+    const vatRate = 0.21;
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const dict = translations[lang];
+
+      // Update button styles
+      const btnNl = document.getElementById('lang-nl');
+      const btnEn = document.getElementById('lang-en');
+      if (lang === 'nl') {
+        btnNl.className = 'px-2.5 py-1 rounded-lg bg-white text-blue-600 shadow-sm transition-all';
+        btnEn.className = 'px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-900 transition-all';
+      } else {
+        btnEn.className = 'px-2.5 py-1 rounded-lg bg-white text-blue-600 shadow-sm transition-all';
+        btnNl.className = 'px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-900 transition-all';
+      }
+
+      // Translate texts
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+    }
+
+    function toggleCarePlan() {
+      const isChecked = document.getElementById('addon-care').checked;
+      const card = document.getElementById('care-plan-card');
+      const summaryRow = document.getElementById('summary-care-plan');
+      const monthlyBox = document.getElementById('summary-monthly-box');
+
+      if (isChecked) {
+        card.classList.add('border-blue-600', 'bg-blue-50/50');
+        card.classList.remove('border-slate-200', 'bg-slate-50');
+        summaryRow.classList.remove('hidden');
+        monthlyBox.classList.remove('hidden');
+      } else {
+        card.classList.remove('border-blue-600', 'bg-blue-50/50');
+        card.classList.add('border-slate-200', 'bg-slate-50');
+        summaryRow.classList.add('hidden');
+        monthlyBox.classList.add('hidden');
+      }
+
+      // Calculate base one-time price (Addons don't increase initial cart value, they are subscription)
+      // If you want initial setup fee, add it to 'total' here.
+      const subtotal = basePrice;
+      const vat = subtotal * vatRate;
+      const totalNow = subtotal + vat;
+
+      document.getElementById('calc-subtotal').innerText = `€${subtotal.toFixed(2).replace('.', ',')}`;
+      document.getElementById('calc-vat').innerText = `€${vat.toFixed(2).replace('.', ',')}`;
+      document.getElementById('calc-total-now').innerText = `€${totalNow.toFixed(2).replace('.', ',')}`;
+    }
+
+    // Initialize formatting
+    window.addEventListener('DOMContentLoaded', () => {
+      switchLanguage('nl');
+      toggleCarePlan(); // Set initial state
+    });
+  </script>
+</body>
+</html>
