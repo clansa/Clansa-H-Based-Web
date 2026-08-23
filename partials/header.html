@@ -1,0 +1,27 @@
+  <!-- 1. NAVIGATION -->
+  <header class="bg-white/80 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center">
+        <img src="assets/clansaweb.svg" alt="Clansa Studio" class="h-12 w-auto">
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#voordelen" class="hover:text-blue-600 transition-colors" data-i18n="nav_features">Voordelen</a>
+        <a href="#portfolio" class="hover:text-blue-600 transition-colors" data-i18n="nav_portfolio">Portfolio</a>
+        <a href="#prijzen" class="hover:text-blue-600 transition-colors" data-i18n="nav_pricing">Prijzen</a>
+        <a href="#faq" class="hover:text-blue-600 transition-colors" data-i18n="nav_faq">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher Toggle -->
+        <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold">
+          <button id="lang-nl" onclick="switchLanguage('nl')" class="px-2.5 py-1 rounded-lg bg-white text-blue-600 shadow-sm transition-all">NL</button>
+          <button id="lang-en" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-900 transition-all">EN</button>
+        </div>
+
+        <a href="#contact" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-all" data-i18n="nav_cta">
+          Offerte Aanvragen
+        </a>
+      </div>
+    </div>
+  </header>
