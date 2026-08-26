@@ -1,58 +1,64 @@
-<!-- 9. FOOTER (SEO & Kurumsal Yapı) -->
+<!-- 9. FOOTER (Tam Dil Uyumlu & SEO) -->
 <footer class="bg-white text-slate-600 pt-16 pb-12 px-6 lg:px-12 border-t border-slate-200">
   <div class="max-w-7xl mx-auto">
     
-    <!-- Üst Kısım: 4 Kolonlu Hiyerarşik Yapı -->
+    <!-- Üst Kısım: 4 Kolon -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-100">
       
-      <!-- Kolon 1: Logo & Marka/SEO Açıklaması -->
+      <!-- Kolon 1: Logo & Marka Açıklaması -->
       <div class="flex flex-col gap-4">
         <a href="/" class="flex items-center">
-          <img src="assets/clansaweb.svg" alt="Clansa Studio - Professioneel Webdesign & Development" class="h-10 w-auto">
+          <img src="assets/clansaweb.svg" alt="Clansa Studio" class="h-10 w-auto">
         </a>
-        <p class="text-sm text-slate-500 leading-relaxed">
+        <p class="text-sm text-slate-500 leading-relaxed" data-i18n="footer_desc">
           Professionele webontwikkeling, modern design en betaalbare website-oplossingen voor ondernemers en bedrijven.
         </p>
       </div>
 
-      <!-- Kolon 2: Hızlı Bağlantılar (Site İçi Linkleme) -->
+      <!-- Kolon 2: Navigasyon -->
       <div class="flex flex-col gap-3">
-        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900">Navigatie</span>
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900" data-i18n="footer_col_nav">Navigatie</span>
         <ul class="space-y-2 text-sm">
-          <li><a href="#voordelen" class="hover:text-blue-600 transition-colors">Voordelen</a></li>
-          <li><a href="#portfolio" class="hover:text-blue-600 transition-colors">Portfolio</a></li>
-          <li><a href="#prijzen" class="hover:text-blue-600 transition-colors">Pakketten & Prijzen</a></li>
-          <li><a href="#faq" class="hover:text-blue-600 transition-colors">Veelgestelde Vragen (FAQ)</a></li>
+          <li><a href="#voordelen" class="hover:text-blue-600 transition-colors" data-i18n="nav_features">Voordelen</a></li>
+          <li><a href="#portfolio" class="hover:text-blue-600 transition-colors" data-i18n="nav_portfolio">Portfolio</a></li>
+          <li><a href="#prijzen" class="hover:text-blue-600 transition-colors" data-i18n="nav_pricing">Prijzen</a></li>
+          <li><a href="#faq" class="hover:text-blue-600 transition-colors" data-i18n="nav_faq">FAQ</a></li>
         </ul>
       </div>
 
-      <!-- Kolon 3: Hizmetler (Anahtar Kelime Bazlı SEO Linkleri) -->
+      <!-- Kolon 3: Hizmetler / SEO -->
       <div class="flex flex-col gap-3">
-        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900">Diensten</span>
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900" data-i18n="footer_col_services">Diensten</span>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-blue-600 transition-colors">Maatwerk Webdesign</a></li>
-          <li><a href="#" class="hover:text-blue-600 transition-colors">E-commerce Webshops</a></li>
-          <li><a href="#" class="hover:text-blue-600 transition-colors">Zoekmachine Optimalisatie (SEO)</a></li>
-          <li><a href="#" class="hover:text-blue-600 transition-colors">Website Onderhoud & Hosting</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors" data-i18n="footer_serv_1">Maatwerk Webdesign</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors" data-i18n="footer_serv_2">E-commerce Webshops</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors" data-i18n="footer_serv_3">Zoekmachine Optimalisatie (SEO)</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors" data-i18n="footer_serv_4">Website Onderhoud & Hosting</a></li>
         </ul>
       </div>
 
-      <!-- Kolon 4: İletişim / Güven Veren Bilgiler -->
+      <!-- Kolon 4: İletişim -->
       <div class="flex flex-col gap-3">
-        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900">Contact</span>
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900" data-i18n="footer_col_contact">Contact</span>
         <ul class="space-y-2 text-sm text-slate-500">
           <li class="flex items-center gap-2">
             <span class="text-slate-900 font-medium">E-mail:</span>
             <a href="mailto:info@clansastudio.com" class="hover:text-blue-600 transition-colors">info@clansastudio.com</a>
           </li>
-          <li><span class="text-slate-900 font-medium">Reactietijd:</span> Binnen 24 uur</li>
-          <li><span class="text-slate-900 font-medium">Locatie:</span> Turkije</li>
+          <li>
+            <span class="text-slate-900 font-medium" data-i18n="footer_contact_resp_label">Reactietijd:</span> 
+            <span data-i18n="footer_contact_resp_val">Binnen 24 uur</span>
+          </li>
+          <li>
+            <span class="text-slate-900 font-medium" data-i18n="footer_contact_loc_label">Locatie:</span> 
+            <span data-i18n="footer_contact_loc_val">Nederland</span>
+          </li>
         </ul>
       </div>
 
     </div>
 
-    <!-- Alt Kısım: Telif Hakkı & Yasal Linkler -->
+    <!-- Alt Kısım: Telif & Hukuki Linkler -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <div>
         &copy; 2026 Clansa Studio. <span data-i18n="footer_rights">Alle rechten voorbehouden.</span>
@@ -60,7 +66,7 @@
       <div class="flex gap-6">
         <a href="#" class="hover:text-slate-900 transition-colors" data-i18n="footer_privacy">Privacybeleid</a>
         <a href="#" class="hover:text-slate-900 transition-colors" data-i18n="footer_terms">Algemene Voorwaarden</a>
-        <a href="#" class="hover:text-slate-900 transition-colors">Cookiebeleid</a>
+        <a href="#" class="hover:text-slate-900 transition-colors" data-i18n="footer_cookies">Cookiebeleid</a>
       </div>
     </div>
 

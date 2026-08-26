@@ -1,4 +1,4 @@
-    let currentLang = 'nl';
+let currentLang = 'nl';
     let currentBenchmarkMode = 'typical';
 
     const translations = {
@@ -124,9 +124,22 @@
         form_pkg_label: "Gewenst Pakket",
         form_msg: "Vertel kort over uw wensen",
         form_btn: "Aanvraag Verzenden →",
+        footer_desc: "Professionele webontwikkeling, modern design en betaalbare website-oplossingen voor ondernemers en bedrijven.",
+        footer_col_nav: "Navigatie",
+        footer_col_services: "Diensten",
+        footer_serv_1: "Maatwerk Webdesign",
+        footer_serv_2: "E-commerce Webshops",
+        footer_serv_3: "Zoekmachine Optimalisatie (SEO)",
+        footer_serv_4: "Website Onderhoud & Hosting",
+        footer_col_contact: "Contact",
+        footer_contact_resp_label: "Reactietijd:",
+        footer_contact_resp_val: "Binnen 24 uur",
+        footer_contact_loc_label: "Locatie:",
+        footer_contact_loc_val: "Nederland",
         footer_rights: "Alle rechten voorbehouden.",
         footer_privacy: "Privacybeleid",
-        footer_terms: "Algemene Voorwaarden"
+        footer_terms: "Algemene Voorwaarden",
+        footer_cookies: "Cookiebeleid"
       },
       en: {
         nav_features: "Features",
@@ -250,9 +263,22 @@
         form_pkg_label: "Select Package",
         form_msg: "Tell us about your project",
         form_btn: "Send Inquiry →",
+        footer_desc: "Professional web development, modern design, and high-performance website solutions for businesses.",
+        footer_col_nav: "Navigation",
+        footer_col_services: "Services",
+        footer_serv_1: "Custom Web Design",
+        footer_serv_2: "E-commerce Webshops",
+        footer_serv_3: "Search Engine Optimization (SEO)",
+        footer_serv_4: "Website Maintenance & Hosting",
+        footer_col_contact: "Contact",
+        footer_contact_resp_label: "Response time:",
+        footer_contact_resp_val: "Within 24 hours",
+        footer_contact_loc_label: "Location:",
+        footer_contact_loc_val: "The Netherlands",
         footer_rights: "All rights reserved.",
         footer_privacy: "Privacy Policy",
-        footer_terms: "Terms & Conditions"
+        footer_terms: "Terms & Conditions",
+        footer_cookies: "Cookie Policy"
       }
     };
 
@@ -449,8 +475,6 @@
       const index = parseInt(pagesInput.value, 10);
       const tier = getTier(index);
 
-      // Re-render the add-on cards only when the plan tier actually changes
-      // (avoids re-rendering on every single slider tick).
       if (tier !== lastRenderedTier) {
         renderAddons();
       }
