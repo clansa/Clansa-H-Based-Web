@@ -1,16 +1,68 @@
-  <!-- 9. FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 py-12 px-6 lg:px-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs">
-      <div class="flex items-center gap-2 text-white font-bold text-base">
-        <span class="w-6 h-6 rounded-md bg-blue-600 text-white flex items-center justify-center text-xs">⚡</span>
-        Clansa Studio
+<!-- 9. FOOTER (SEO & Kurumsal Yapı) -->
+<footer class="bg-white text-slate-600 pt-16 pb-12 px-6 lg:px-12 border-t border-slate-200">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Üst Kısım: 4 Kolonlu Hiyerarşik Yapı -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-100">
+      
+      <!-- Kolon 1: Logo & Marka/SEO Açıklaması -->
+      <div class="flex flex-col gap-4">
+        <a href="/" class="flex items-center">
+          <img src="assets/clansaweb.svg" alt="Clansa Studio - Professioneel Webdesign & Development" class="h-10 w-auto">
+        </a>
+        <p class="text-sm text-slate-500 leading-relaxed">
+          Professionele webontwikkeling, modern design en betaalbare website-oplossingen voor ondernemers en bedrijven.
+        </p>
       </div>
+
+      <!-- Kolon 2: Hızlı Bağlantılar (Site İçi Linkleme) -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900">Navigatie</span>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#voordelen" class="hover:text-blue-600 transition-colors">Voordelen</a></li>
+          <li><a href="#portfolio" class="hover:text-blue-600 transition-colors">Portfolio</a></li>
+          <li><a href="#prijzen" class="hover:text-blue-600 transition-colors">Pakketten & Prijzen</a></li>
+          <li><a href="#faq" class="hover:text-blue-600 transition-colors">Veelgestelde Vragen (FAQ)</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolon 3: Hizmetler (Anahtar Kelime Bazlı SEO Linkleri) -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900">Diensten</span>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Maatwerk Webdesign</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">E-commerce Webshops</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Zoekmachine Optimalisatie (SEO)</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Website Onderhoud & Hosting</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolon 4: İletişim / Güven Veren Bilgiler -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-900">Contact</span>
+        <ul class="space-y-2 text-sm text-slate-500">
+          <li class="flex items-center gap-2">
+            <span class="text-slate-900 font-medium">E-mail:</span>
+            <a href="mailto:info@clansastudio.com" class="hover:text-blue-600 transition-colors">info@clansastudio.com</a>
+          </li>
+          <li><span class="text-slate-900 font-medium">Reactietijd:</span> Binnen 24 uur</li>
+          <li><span class="text-slate-900 font-medium">Locatie:</span> Turkije</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Alt Kısım: Telif Hakkı & Yasal Linkler -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <div>
         &copy; 2026 Clansa Studio. <span data-i18n="footer_rights">Alle rechten voorbehouden.</span>
       </div>
       <div class="flex gap-6">
-        <a href="#" class="hover:text-white transition-colors" data-i18n="footer_privacy">Privacybeleid</a>
-        <a href="#" class="hover:text-white transition-colors" data-i18n="footer_terms">Algemene Voorwaarden</a>
+        <a href="#" class="hover:text-slate-900 transition-colors" data-i18n="footer_privacy">Privacybeleid</a>
+        <a href="#" class="hover:text-slate-900 transition-colors" data-i18n="footer_terms">Algemene Voorwaarden</a>
+        <a href="#" class="hover:text-slate-900 transition-colors">Cookiebeleid</a>
       </div>
     </div>
-  </footer>
+
+  </div>
+</footer>
