@@ -143,28 +143,46 @@
                   <input type="radio" name="Betaalmethode" value="iDEAL" checked class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300">
                   <span class="text-sm font-bold text-slate-900">iDEAL</span>
                 </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/IDEAL_Logo.png" alt="iDEAL" class="h-6">
+                <!-- iDEAL Vector Badge -->
+                <svg class="h-6 w-auto" viewBox="0 0 46 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="46" height="28" rx="5" fill="#CC0066"/>
+                  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="11" letter-spacing="-0.4">iDEAL</text>
+                </svg>
               </label>
-
+          
               <!-- Credit Card -->
               <label class="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-blue-400 cursor-pointer group bg-white has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/50 transition-all">
                 <div class="flex items-center gap-3">
                   <input type="radio" name="Betaalmethode" value="Creditcard" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300">
                   <span class="text-sm font-bold text-slate-900" data-i18n="pay_card">Creditcard / Debitkaart</span>
                 </div>
-                <div class="flex gap-1">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-6">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-6">
+                <div class="flex items-center gap-1.5">
+                  <!-- Mastercard Vector -->
+                  <svg class="h-6 w-auto" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="38" height="24" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+                    <circle cx="15" cy="12" r="6" fill="#EB001B"/>
+                    <circle cx="23" cy="12" r="6" fill="#F79E1B" fill-opacity="0.85"/>
+                  </svg>
+                  <!-- Visa Vector -->
+                  <svg class="h-6 w-auto" viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="42" height="24" rx="4" fill="#0A2540"/>
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="900" font-style="italic" font-size="10" letter-spacing="1">VISA</text>
+                  </svg>
                 </div>
               </label>
-
+          
               <!-- Bancontact -->
               <label class="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-blue-400 cursor-pointer group bg-white has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/50 transition-all">
                 <div class="flex items-center gap-3">
                   <input type="radio" name="Betaalmethode" value="Bancontact" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300">
                   <span class="text-sm font-bold text-slate-900">Bancontact</span>
                 </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bancontact_logo.svg" alt="Bancontact" class="h-5">
+                <!-- Bancontact Vector Badge -->
+                <svg class="h-6 w-auto" viewBox="0 0 54 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="54" height="28" rx="5" fill="#002D72"/>
+                  <path d="M11 19L17 9H23L17 19H11Z" fill="#FFC700"/>
+                  <text x="35" y="15.5" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="800" font-size="7.5" letter-spacing="0.2">Bancontact</text>
+                </svg>
               </label>
             </div>
           </section>
