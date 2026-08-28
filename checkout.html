@@ -329,7 +329,7 @@
         &copy; 2026 Clansa Studio. <span data-i18n="footer_rights">Alle rechten voorbehouden.</span>
       </div>
       <div class="flex gap-6">
-        <<!-- Değiştirilecek kısım: -->
+        <!-- Değiştirilecek kısım: -->
 <a href="privacy.html" class="hover:text-slate-900 transition-colors" data-i18n="footer_privacy">Privacybeleid</a>
         <a href="#" class="hover:text-slate-900 transition-colors" data-i18n="footer_terms">Algemene Voorwaarden</a>
         <a href="#" class="hover:text-slate-900 transition-colors" data-i18n="footer_cookies">Cookiebeleid</a>
@@ -343,7 +343,7 @@
   <script>
     const translations = {
       nl: {
-        back_to_site: "&larr; Terug naar website",
+        back_home: "← Terug naar website",
         page_title: "Veilig Afrekenen",
         page_sub: "Rond uw projectaanvraag af en start direct.",
         sec_details: "Uw Gegevens",
@@ -373,10 +373,29 @@
         btn_redirecting: "Even geduld, doorverbinden naar betaalpagina...",
         trust_1: "<strong>Gegarandeerd:</strong> 7-dagen niet-goed-geld-terug garantie. Geen vragen gesteld.",
         trust_2: "Uw betaling is beveiligd met <strong>256-bit SSL-encryptie</strong> via onze betaalpartner.",
-        footer_rights: "Alle rechten voorbehouden."
+        footer_desc: "Professionele webontwikkeling, modern design en betaalbare website-oplossingen voor ondernemers en bedrijven.",
+        footer_col_nav: "Navigatie",
+        nav_features: "Voordelen",
+        nav_portfolio: "Portfolio",
+        nav_pricing: "Prijzen",
+        nav_faq: "FAQ",
+        footer_col_services: "Diensten",
+        footer_serv_1: "Maatwerk Webdesign",
+        footer_serv_2: "E-commerce Webshops",
+        footer_serv_3: "Zoekmachine Optimalisatie (SEO)",
+        footer_serv_4: "Website Onderhoud & Hosting",
+        footer_col_contact: "Contact",
+        footer_contact_resp_label: "Reactietijd:",
+        footer_contact_resp_val: "Binnen 24 uur",
+        footer_contact_loc_label: "Locatie:",
+        footer_contact_loc_val: "Nederland",
+        footer_rights: "Alle rechten voorbehouden.",
+        footer_privacy: "Privacybeleid",
+        footer_terms: "Algemene Voorwaarden",
+        footer_cookies: "Cookiebeleid"
       },
       en: {
-        back_to_site: "&larr; Back to website",
+        back_home: "← Back to website",
         page_title: "Secure Checkout",
         page_sub: "Complete your project request and start immediately.",
         sec_details: "Your Details",
@@ -406,7 +425,26 @@
         btn_redirecting: "Please wait, redirecting to payment...",
         trust_1: "<strong>Guaranteed:</strong> 7-day money-back guarantee. No questions asked.",
         trust_2: "Your payment is secured with <strong>256-bit SSL encryption</strong> via our payment partner.",
-        footer_rights: "All rights reserved."
+        footer_desc: "Professional web development, modern design, and affordable website solutions for entrepreneurs and businesses.",
+        footer_col_nav: "Navigation",
+        nav_features: "Features",
+        nav_portfolio: "Portfolio",
+        nav_pricing: "Pricing",
+        nav_faq: "FAQ",
+        footer_col_services: "Services",
+        footer_serv_1: "Custom Web Design",
+        footer_serv_2: "E-commerce Webshops",
+        footer_serv_3: "Search Engine Optimization (SEO)",
+        footer_serv_4: "Website Maintenance & Hosting",
+        footer_col_contact: "Contact",
+        footer_contact_resp_label: "Response Time:",
+        footer_contact_resp_val: "Within 24 hours",
+        footer_contact_loc_label: "Location:",
+        footer_contact_loc_val: "Netherlands",
+        footer_rights: "All rights reserved.",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms & Conditions",
+        footer_cookies: "Cookie Policy"
       }
     };
 
@@ -431,7 +469,7 @@
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
+        if (dict && dict[key]) {
           el.innerHTML = dict[key];
         }
       });
@@ -464,7 +502,6 @@
       document.getElementById('calc-total-now').innerText = `€${totalNow.toFixed(2).replace('.', ',')}`;
     }
 
-    // FORMSPREE ARKA PLANDA ÇALIŞIR VE DOĞRUDAN LEMON SQUEEZY'YE YÖNLENDİRİR
     async function handleCheckoutSubmit(event) {
       event.preventDefault();
       
@@ -474,7 +511,6 @@
       const btnIcon = document.getElementById('btn-icon');
       const dict = translations[currentLang];
 
-      // Buton durumunu güncelle
       submitBtn.disabled = true;
       btnIcon.classList.add('hidden');
       btnText.innerText = dict.btn_redirecting;
@@ -482,7 +518,6 @@
       const formData = new FormData(form);
 
       try {
-        // Formspree'ye veriyi arka planda gönder
         await fetch(form.action, {
           method: 'POST',
           body: formData,
@@ -491,10 +526,9 @@
           }
         });
       } catch (err) {
-        console.warn('Form verisi iletilirken arka plan hatasi (yine de yonlendiriliyor):', err);
+        console.warn('Form verisi iletilirken arka plan hatası:', err);
       }
 
-      // Müşteriyi doğrudan Lemon Squeezy linkine fırlat
       window.location.href = checkoutUrl;
     }
 
